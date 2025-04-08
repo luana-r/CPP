@@ -6,7 +6,7 @@
 /*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 21:02:53 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/03 21:32:44 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:00:18 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ int	main()
 	
 	while (1) {
 		getline(std::cin, input);
-		if (input == "ADD") {
+		if (input == "ADD")
 			myPhonebook.addContact();
-			std::cout << GREEN << "New contact added successfully!" << RESET << std::endl;
-		}
 		else if (input == "SEARCH")
 			myPhonebook.searchContact();
 		else if (input == "EXIT")

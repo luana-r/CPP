@@ -6,14 +6,12 @@
 /*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 21:52:19 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/07 22:16:35 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:48:49 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <string>
 #include <cstring>
-#include <cstdlib>
 
 bool isBlank(const std::string& str) {
     if (str.empty())
@@ -26,16 +24,14 @@ bool isBlank(const std::string& str) {
     return true;
 }
 
-bool validateFields(const std::string& firstName, const std::string& lastName,
+void validateFields(const std::string& firstName, const std::string& lastName,
                    const std::string& nickName, const std::string& phoneNumber,
                    const std::string& darkestSecret) {
     if (isBlank(firstName) || isBlank(lastName) || isBlank(nickName)
         || isBlank(phoneNumber) || isBlank(darkestSecret)) {
         std::cout << RED << "Invalid. Try again" << RESET << std::endl;
-        return true;
+        return;
     }
-	return false;
-}
 
 void	PhoneBook::addContact() {
 	std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
@@ -52,27 +48,24 @@ void	PhoneBook::addContact() {
 	std::cout << "Input the darkest secret: " ;
 	getline(std::cin, darkestSecret);
 	
-	if (validateFields(firstName, lastName, nickName, phoneNumber, darkestSecret))
-		return ;
-	if (contactCount == 8)
-		id = contactCount - 1;
+	validateFields(firstName, lastName, nickName, phoneNumber, darkestSecret);
+	if (this->contactCount == 8)
+		id = this->contactCount - 1;
 	else {
-		id = contactCount;
-		contactCount++;
+		id = this->contactCount;
+		this->contactCount++;
 	}
-	contactList[id].setFirstName(firstName);
-	contactList[id].setLastName(lastName);
-	contactList[id].setNickname(nickName);
-	contactList[id].setPhoneNumber(phoneNumber);
-	contactList[id].setDarkestSecret(darkestSecret);
-	std::cout << GREEN << "New contact added successfully!" << RESET << std::endl;
+	this->contactList[id].setFirstName(firstName);
+	this->contactList[id].setLastName(lastName);
+	this->contactList[id].setNickname(nickName);
+	this->contactList[id].setPhoneNumber(phoneNumber);
+	this->contactList[id].setDarkestSecret(darkestSecret);
 }
 
 // construtor
 PhoneBook::PhoneBook() {
     // Implementação do construtor
 	contactCount = 0;
-	iterList = 0;
 }
 
 // destrutor
@@ -120,7 +113,7 @@ void	PhoneBook::searchContact() {
 	std::cout << std::endl;
 	std::cout << PROMPT << "Enter index contact: " << RESET;
 	getline(std::cin, index);
-	id = atoi(index.c_str());
+	id = std::atoi(index.c_str());
 	if (id <= 0 || id > contactCount) {
 		std::cerr << RED << "There's no contact with this index." << RESET << std::endl;
 		return;
@@ -133,4 +126,3 @@ void	PhoneBook::searchContact() {
 		std::cout << "Darkest Secret: " << this->contactList[id - 1].getDarkestSecret() ;
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 21:52:30 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/03 21:19:01 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:16:19 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include <iomanip>
 # include <sstream>
 # include <string>
+# include <cstring>
 
 class PhoneBook {
 	private:
 		Contact	contactList[8];
 		int		contactCount;
+		int		iterList;
 	
 	public:
 		PhoneBook();
