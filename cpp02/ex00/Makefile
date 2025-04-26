@@ -1,11 +1,11 @@
-NAME		:= Harl
+NAME		:= ex00
 CFLAGS		:= -Wextra -Wall -Werror -std=c++98
 SRCS_PATH	:= ./src/
 .SILENT:
 
 SRCS		:= $(addprefix $(SRCS_PATH), \
 				main.cpp \
-				Harl.cpp )
+				Fixed.cpp )
 
 OBJS		:= $(SRCS:$(SRCS_PATH)%.cpp=obj/%.o)
 
