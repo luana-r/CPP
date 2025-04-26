@@ -1,9 +1,12 @@
-NAME		:= hiThisIsBrain
+NAME		:= UnnecessaryViolence
 CFLAGS		:= -Wextra -Wall -Werror -std=c++98
 SRCS_PATH	:= ./src/
 .SILENT:
 
 SRCS		:= $(addprefix $(SRCS_PATH), \
+				HumanA.cpp \
+				HumanB.cpp \
+				Weapon.cpp \
 				main.cpp )
 
 OBJS		:= $(SRCS:$(SRCS_PATH)%.cpp=obj/%.o)
