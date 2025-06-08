@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsouza-r <lsouza-r@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:41:09 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/17 19:24:37 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/06/08 19:53:38 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Weapon::Weapon() {};
 Weapon::Weapon(std::string type) : type(type) {};
 Weapon::~Weapon() {};
 
-std::string Weapon::getType(void) {
+const std::string& Weapon::getType(void) const{
 	return (this->type);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsouza-r <lsouza-r@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 19:27:56 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/17 20:03:17 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/06/08 19:49:43 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class HumanB {
 		~HumanB();
 
 		void attack(void);
-		std::string getName(void);
+		const std::string getName(void) const;
 		void setWeapon(Weapon &WeaponB);
 };
 

@@ -1,4 +1,4 @@
-NAME		:= Replace
+NAME		:= RefAndPtr
 CFLAGS		:= -Wextra -Wall -Werror -std=c++98
 SRCS_PATH	:= ./src/
 .SILENT:

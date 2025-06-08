@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsouza-r <lsouza-r@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:43:30 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/17 19:59:12 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/06/08 19:48:05 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanA {
 		~HumanA();
 		
 		void attack(void);
-		std::string getName(void);
+		const std::string& getName(void) const;
 };
 
 #endif

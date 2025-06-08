@@ -3,23 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsouza-r <lsouza-r@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lsouza-r <lsouza-r@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 19:31:12 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/04/17 20:04:18 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/06/08 20:00:00 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : name(name) {};
-HumanB::~HumanB() {};
+HumanB::HumanB(std::string name) {
+	this->name = name;
+	this->WeaponB = NULL;
+};
+
+HumanB::~HumanB() {
+	std::cout << this->getName() << " : called destructor" << std::endl;
+};
 
 void HumanB::attack(void) {
-	std::cout << this->getName() << " attacks with their " << this->WeaponB->getType() << std::endl;
+	if (!this->WeaponB)
+		std::cout << this->name << " is unnarmed"<< std::endl;
+	else
+		std::cout << this->getName() << " attacks with their " << this->WeaponB->getType() << std::endl;
 }
 
-std::string HumanB::getName(void) {
+const std::string HumanB::getName(void) const {
 	return (this->name);
 }
 
