@@ -6,7 +6,7 @@
 /*   By: lsouza-r <lsouza-r@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 17:25:36 by lsouza-r          #+#    #+#             */
-/*   Updated: 2025/06/08 20:53:35 by lsouza-r         ###   ########.fr       */
+/*   Updated: 2025/06/08 23:57:31 by lsouza-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,29 @@ void Fixed::setRawBits(int const raw) {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->fixedInteger = raw;
 }
+
+Fixed::Fixed(int const value) {
+	// multiplica o número inteiro por 256, 2^8
+	// que´é o mesmo que deslocar 8 bits para a esquerda
+	// como é número inteiro serão adicionar 8 bits zeros
+	this->fixedInteger = value << fractionalBits;
+};
+
+Fixed::Fixed(float const value) {
+	this->fixedInteger = roundf(value * (1 << fractionalBits));
+};
+
+float Fixed::toFloat( void ) const {
+	return ((float)this->fixedInteger / (float)(1 << fractionalBits));
+};
+
+int Fixed::toInt( void ) const {
+	return (this->fixedInteger >> fractionalBits);
+}
+
+std::ostream & operator<<(std::ostream &os, Fixed const &num)
+{
+    os << num.toFloat();
+    return (os);
+}
+
